@@ -1,0 +1,115 @@
+extends cheader
+
+snippet td "Typedef"
+typedef ${1:int} ${2:MyCustomType};
+$0
+endsnippet
+
+snippet enum "Enumeration"
+enum ${1:name} {$2};
+$0
+endsnippet
+
+snippet st "struct"
+struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`} {
+	${2:/* data */}
+}$3;
+$0
+endsnippet
+
+snippet main "main() (main)"
+int main(int argc, char const *argv[]) {
+	${VISUAL}${0:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+	return 0;
+}
+endsnippet
+
+snippet for "for loop"
+for (${2:i} = ${3:0}; $2 < ${1:count}; $2 ${4:++}) {
+	${VISUAL}${5:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+$0
+endsnippet
+
+snippet wh "while loop"
+while (${1:/* condition */}) {
+	${VISUAL}${2:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+$0
+endsnippet
+
+snippet do "do...while loop (do)"
+do {
+	${VISUAL}${2:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+} while(${1:/* condition */});
+$0
+endsnippet
+
+snippet if "if .. (if)"
+if (${1:/* condition */}) {
+	${VISUAL}${2:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+$0
+endsnippet
+
+snippet elif "else if .. (elif)"
+else if (${1:/* condition */}) {
+	${VISUAL}${2:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+$0
+endsnippet
+
+snippet else "else .. (else)"
+else {
+	${VISUAL}${1:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+$0
+endsnippet
+
+snippet ife "if .. else (ife)"
+if (${1:/* condition */}) {
+	${2:/* code */}
+}
+else {
+	${3:/* else */}
+}
+$0
+endsnippet
+
+snippet printf "printf .. (printf)"
+printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet fprintf "fprintf ..."
+fprintf(${1:FILE *}, "${2:%s}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet sprintf "sprintf ..."
+sprintf(${1:buffer}, "${2:%s}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet scanf "scanf .. (scanf)"
+scanf("$1", $2);$3
+endsnippet
+
+snippet fscanf "fscanf ..."
+fscanf(${1:FILE *}, "$2", $3);$4
+endsnippet
+
+snippet sscanf "sscanf"
+sscanf(${1:buffer}, "$2", $3);$4
+endsnippet
+
+snippet fun "function" b
+${1:void} ${2:function_name}(${3}) {
+	${VISUAL}${4:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+$0
+endsnippet
+
+snippet fund "function declaration" b
+${1:void} ${2:function_name}(${3});
+endsnippet
+
+
+# vim:ft=snippets:
