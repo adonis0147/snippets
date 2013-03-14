@@ -76,6 +76,17 @@ else {
 $0
 endsnippet
 
+snippet fun "function" b
+${1:void} ${2:function_name}(${3}) {
+	${VISUAL}${4:${VISUAL/(.*)/(?1::\/* code *\/)/}}
+}
+$0
+endsnippet
+
+snippet fund "function declaration" b
+${1:void} ${2:function_name}(${3});
+endsnippet
+
 snippet printf "printf .. (printf)"
 printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
 endsnippet
@@ -100,15 +111,12 @@ snippet sscanf "sscanf"
 sscanf(${1:buffer}, "$2", $3);$4
 endsnippet
 
-snippet fun "function" b
-${1:void} ${2:function_name}(${3}) {
-	${VISUAL}${4:${VISUAL/(.*)/(?1::\/* code *\/)/}}
-}
-$0
+snippet frein "freopen ... stdin"
+freopen("${1:input.txt}", "r", stdin);$2
 endsnippet
 
-snippet fund "function declaration" b
-${1:void} ${2:function_name}(${3});
+snippet freout "freopen ... stdout"
+freopen("${1:output.txt}", "w", stdout);$2
 endsnippet
 
 

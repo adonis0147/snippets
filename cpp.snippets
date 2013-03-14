@@ -139,5 +139,13 @@ snippet cout "cout"
 cout << ${1:${VISUAL/(^\s*<<\s*|\s*$)//g}}${2: << endl};$3
 endsnippet
 
+snippet frein "freopen ... stdin"
+freopen("${1:input.txt}", "r", stdin);$2
+endsnippet
+
+snippet freout "freopen ... stdout"
+freopen("${1:output.txt}", "w", stdout);$2
+endsnippet
+
 
 # vim:ft=snippets:
