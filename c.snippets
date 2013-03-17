@@ -1,20 +1,17 @@
 extends cheader
 
 snippet td "Typedef"
-typedef ${1:int} ${2:MyCustomType};
-$0
+typedef ${1:int} ${2:MyCustomType};$0
 endsnippet
 
 snippet enum "Enumeration"
-enum ${1:name} {$2};
-$0
+enum ${1:name} {$2};$0
 endsnippet
 
 snippet st "struct"
 struct ${1:`!p snip.rv = (snip.basename or "name") + "_t"`} {
 	${2:/* data */}
-}$3;
-$0
+}$3;$0
 endsnippet
 
 snippet main "main() (main)"
@@ -27,43 +24,37 @@ endsnippet
 snippet for "for loop"
 for (${2:i} = ${3:0}; $2 < ${1:count}; $2 ${4:++}) {
 	${VISUAL}${5:${VISUAL/(.*)/(?1::\/* code *\/)/}}
-}
-$0
+}$0
 endsnippet
 
 snippet wh "while loop"
 while (${1:/* condition */}) {
 	${VISUAL}${2:${VISUAL/(.*)/(?1::\/* code *\/)/}}
-}
-$0
+}$0
 endsnippet
 
 snippet do "do...while loop (do)"
 do {
 	${VISUAL}${2:${VISUAL/(.*)/(?1::\/* code *\/)/}}
-} while(${1:/* condition */});
-$0
+} while (${1:/* condition */});$0
 endsnippet
 
 snippet if "if .. (if)"
 if (${1:/* condition */}) {
 	${VISUAL}${2:${VISUAL/(.*)/(?1::\/* code *\/)/}}
-}
-$0
+}$0
 endsnippet
 
 snippet elif "else if .. (elif)"
 else if (${1:/* condition */}) {
 	${VISUAL}${2:${VISUAL/(.*)/(?1::\/* code *\/)/}}
-}
-$0
+}$0
 endsnippet
 
 snippet else "else .. (else)"
 else {
 	${VISUAL}${1:${VISUAL/(.*)/(?1::\/* code *\/)/}}
-}
-$0
+}$0
 endsnippet
 
 snippet ife "if .. else (ife)"
@@ -72,15 +63,13 @@ if (${1:/* condition */}) {
 }
 else {
 	${3:/* else */}
-}
-$0
+}$0
 endsnippet
 
 snippet fun "function" b
 ${1:void} ${2:function_name}(${3}) {
 	${VISUAL}${4:${VISUAL/(.*)/(?1::\/* code *\/)/}}
-}
-$0
+}$0
 endsnippet
 
 snippet fund "function declaration" b
